@@ -52,6 +52,13 @@
 
 ・本と本を結ぶネットワークを広く形成することで社会の資産となる
 
+・意外なつながりが発見されて読書がさらに楽しくなる
+
 ## プロダクト
 書籍レコメンドサービス
 
+## 画面遷移
+https://www.figma.com/file/kMgHDAxny8TINo01RRkFbf/%E4%BA%8C%E5%86%8A%E7%9B%AE?node-id=0%3A1
+
+## ポートフォリオ構想
+https://docs.google.com/presentation/d/18Vv9WmKnOsGrOAfFvv4Z3M1dc28bWy06vsqrY5rQy9c/edit#slide=id.g88514e408f_2_49
