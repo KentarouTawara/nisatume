@@ -31,5 +31,14 @@ module Nisatume
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # generatorの設定
+    config.generators do |g|
+      g.skip_routes false
+      g.assets false
+      g.helper false
+      g.test_framework :rspec,
+                       request_specs: false
+    end
   end
 end
