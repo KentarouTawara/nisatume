@@ -37,6 +37,7 @@ yarn-debug.log*
 
 # ignore .idea files
 .idea
+.idea/nisatume.iml
 
 # Ignore bundle dir
 /vendor/bundle
