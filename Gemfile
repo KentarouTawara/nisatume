@@ -49,9 +49,9 @@ group :development, :test do
   gem 'rails_best_practices', require: false
   gem 'reek'
   gem 'rspec_junit_formatter'
-  gem 'rubocop'
-  gem 'rubocop-checkstyle_formatter'
-  gem 'rubocop-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-checkstyle_formatter', require: false
+  gem 'rubocop-rails', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint'
 
