@@ -8,7 +8,7 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-    script
-      | $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
   body
+    = render 'shared/before_login_header'
     = yield
+    = render 'shared/footer'
