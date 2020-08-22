@@ -9,6 +9,9 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    = render 'shared/before_login_header'
+    - if logged_in?
+      = render 'shared/login_header'
+    - else
+      = render 'shared/before_login_header'
     = yield
     = render 'shared/footer'
