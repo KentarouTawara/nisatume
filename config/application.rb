@@ -32,6 +32,16 @@ module Nisatume
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # 国際化の設定
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*{rb,yml}').to_s]
+
+    # 時間の設定
+    config.time_zone = 'Tokyo'
+    # DBを読み書きする時刻の設定。osと同じに設定
+    config.active_record.default_timezone = :local
+
+
     # generatorの設定
     config.generators do |g|
       g.skip_routes false
