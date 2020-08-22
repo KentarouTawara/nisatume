@@ -9,6 +9,9 @@ gem 'rails', '~> 6.0.3'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 
+# Authentication
+gem 'sorcery'
+
 # Database
 gem 'mysql2', '>= 0.4.4'
 # gem 'redis', '~> 4.0'

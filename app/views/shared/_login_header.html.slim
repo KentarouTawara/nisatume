@@ -1,7 +1,7 @@
 header
   nav.navbar.navbar-expand-lg.navigation.navbar-dark.bg-info
-    li.nav-item.nav-link
-      = link_to 'ロゴ', root_path, class: 'nav-link'
+    a.navbar-brand[href="/"]
+      |ロゴ
 
     button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
@@ -11,6 +11,4 @@ header
           a.nav-link[href="login"]
             |紹介カードを作成する
         li.nav-item.nav-link
-          = link_to '新規登録', new_user_path, class: 'nav-link'
-        li.nav-item
-          = link_to 'ログイン', login_path, class: 'nav-link'
+          = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
