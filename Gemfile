@@ -23,6 +23,7 @@ gem 'puma', '~> 4.1'
 gem 'jbuilder', '~> 2.7'
 # gem 'turbolinks'
 gem 'slim-rails'
+gem 'rails-i18n', '~> 6.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
