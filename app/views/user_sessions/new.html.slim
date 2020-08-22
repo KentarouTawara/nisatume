@@ -4,17 +4,17 @@
       .card.mb-3
         .card-body.text-center
           h3
-            |ログイン
+            = t'defaults.login'
       .card.mb-3
         .card-body
           = form_with url: login_path, local:true do |f|
             .form-group
-              = f.label :email
+              = f.label :email, User.human_attribute_name(:email)
               = f.text_field :email, class: 'form-control'
             .form-group
-              = f.label :password
+              = f.label :password, User.human_attribute_name(:password)
               = f.text_field :password, class: 'form-control'
-            = f.submit 'ログイン', class: 'btn btn-raised btn-info'
+            = f.submit (t'defaults.login'), class: 'btn btn-raised btn-info'
 
         .text-center
           = link_to '新規登録ページへ', new_user_path, class: 'btn btn-raised btn-secondary'
