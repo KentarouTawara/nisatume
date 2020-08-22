@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      .card.mb-3
+        .card-body.text-center
+          h3
+            |新規登録
+      .card.mb-3
+        .card-body
+          = form_with model: @user, local:true do |f|
+            .form-group
+              = f.label :name
+              = f.text_field :name, class: 'form-control'
+            .form-group
+              = f.label :email
+              = f.text_field :email, class: 'form-control'
+            .form-group
+              = f.label :password
+              = f.text_field :password, class: 'form-control'
+            .form-group
+              = f.label :password_confirmation
+              = f.text_field :password_confirmation, class: 'form-control'
+            = f.submit '送信', class: 'btn btn-raised btn-info'
