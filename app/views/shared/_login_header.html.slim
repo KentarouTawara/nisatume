@@ -8,6 +8,8 @@ header
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.ml-auto.main-nav.align-items-center
         li.nav-item
+          = current_user.name
+        li.nav-item
           a.nav-link[href="login"]
             |紹介カードを作成する
         li.nav-item.nav-link
