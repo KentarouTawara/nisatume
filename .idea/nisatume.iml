@@ -859,6 +859,33 @@
     </orderEntry>
     <orderEntry type="module" module-name="rainbow-3.0.0" />
     <orderEntry type="module" module-name="rake-13.0.1" />
+    <orderEntry type="module-library">
+      <library name="rakuten_web_service (vbundled(1.12.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/.vscode" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/examples" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/.vscode" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/examples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/.vscode" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rakuten_web_service-1.12.0/examples" />
+        </excluded>
+      </library>
+    </orderEntry>
     <orderEntry type="module" module-name="rb-fsevent-0.10.4" />
     <orderEntry type="module" module-name="rb-inotify-0.10.1" />
     <orderEntry type="module" module-name="reek-6.0.1" />
