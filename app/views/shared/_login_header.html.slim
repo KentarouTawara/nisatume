@@ -10,7 +10,6 @@ header
         li.nav-item
           = current_user.name
         li.nav-item
-          a.nav-link[href="login"]
-            |紹介カードを作成する
+          = link_to '紹介カードを作成する', new_post_path, class: 'nav-link'
         li.nav-item.nav-link
           = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
