@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_061916) do
+ActiveRecord::Schema.define(version: 2020_08_25_130137) do
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "author", null: false
+    t.integer "isbn", null: false
+    t.string "publisher", null: false
+    t.string "book_image", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "linking_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "book_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id", "post_id"], name: "index_linking_books_on_book_id_and_post_id", unique: true
+    t.index ["book_id"], name: "index_linking_books_on_book_id"
+    t.index ["post_id"], name: "index_linking_books_on_post_id"
+  end
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
@@ -22,4 +50,7 @@ ActiveRecord::Schema.define(version: 2020_08_22_061916) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "linking_books", "books"
+  add_foreign_key "linking_books", "posts"
+  add_foreign_key "posts", "users"
 end
