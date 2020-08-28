@@ -1,0 +1,14 @@
+.search_results
+  - result_books.each do |book|
+    .card
+      = link_to (image_tag(book.large_image_url)), book.affiliate_url
+    div
+      p
+        = book.title
+      p
+        = book.author
+      p
+        = book.isbn
+      p
+        = book.publisher_name
+      = link_to '一冊目に選ぶ', root_path, class: 'btn btn-raised btn-info'
