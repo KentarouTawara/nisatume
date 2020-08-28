@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def new
-
+    @post = Post.new
   end
 
   def search
@@ -11,4 +11,9 @@ class PostsController < ApplicationController
     end
     render :new
   end
+
+  def create
+    @linking_book = LinkingBook
+  end
+
 end
