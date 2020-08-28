@@ -5,56 +5,30 @@
         .card-header
           .text-center
             | 一冊目を選ぶ
+        /ajax通信で一覧を返す
+        /本検索機能の実装
         .card-body
-          .text-center
-            / = image_pack_tag 'media/images/horse.jpg', size: '300x300', class: 'text-center'
-        .card-body.border-info
-          = form_with model: @search_form, url: search_posts_path, method: :get, local: true do |f|
+          = form_with url: search_posts_path, method: :get, id:'linking_book_index', remote: true do |f|
             .form-group
               = f.search_field :keyword, class: "form-control border border-success"
               = f.hidden_field :role, value: 'linking'
-              = f.submit '本の題名を検索', class: "form-control btn btn-success"
-          - if @linking_books.present?
-            - @linking_books.each do |book|
-              .card.border.border-info.float-left
-                = link_to (image_tag(book.large_image_url)), book.affiliate_url
-              .card.float-left
-                .p
-                  = book.title
-                .p
-                  = book.author
-                .p
-                  = book.isbn
-                .p
-                  = book.publisher_name
-                = link_to '一冊目に選ぶ', root_path, class: 'btn btn-raised btn-info'
+            = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
+        / 感想コメントの実装
+        .card-body
 
     .col-6
       .card.border.border-info
         .card-header
           .text-center
             | 二冊目を選ぶ
+        /ajax通信で一覧を返す
+        /本検索機能の実装
         .card-body
-          .text-center
-        / = image_pack_tag 'media/images/horse.jpg', size: '300x300', class: 'text-center'
-        .card-body.border-info
-          = form_with model: @search_form, url: search_posts_path, method: :get, local: true do |f|
+          = form_with url: search_posts_path, method: :get, id: 'linked_book_index', remote: true do |f|
             .form-group
               = f.search_field :keyword, class: "form-control border border-success"
-              = f.hidden_field :role, :value => 'linked'
-              = f.submit '本の題名を検索', class: "form-control btn btn-success"
-          - if @linked_books.present?
-            - @linked_books.each do |book|
-              .card.border.border-info.float-left
-                = link_to (image_tag(book.large_image_url)), book.affiliate_url
-              .card.float-left
-                .p
-                  = book.title
-                .p
-                  = book.author
-                .p
-                  = book.isbn
-                .p
-                  = book.publisher_name
-                = link_to '一冊目に選ぶ', root_path, class: 'btn btn-raised btn-info'
+              = f.hidden_field :role, value: 'linked'
+            = f.submit '本の題名を検索', class: "form-control btn btn-success"
+
+
