@@ -12,7 +12,7 @@
           = form_with model: @search_form, url: search_posts_path, method: :get, local: true do |f|
             .form-group
               = f.search_field :keyword, class: "form-control border border-success"
-              = f.hidden_field :role, :value => 'linking'
+              = f.hidden_field :role, value: 'linking'
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
           - if @linking_books.present?
             - @linking_books.each do |book|
@@ -28,6 +28,7 @@
                 .p
                   = book.publisher_name
                 = link_to '一冊目に選ぶ', root_path, class: 'btn btn-raised btn-info'
+
 
     .col-6
       .card.border.border-info
