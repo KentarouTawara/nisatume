@@ -9,6 +9,7 @@ class PostsController < ApplicationController
       @role = params[:role]
     else
       @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
+      @role = params[:role]
     end
   end
 end

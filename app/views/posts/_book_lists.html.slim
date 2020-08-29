@@ -1,14 +1,18 @@
-.search_results
+div class = "results_search_#{role}"
   - result_books.each do |book|
-    .card
-      = link_to (image_tag(book.large_image_url)), book.affiliate_url
-    div
-      p
-        = book.title
-      p
-        = book.author
-      p
-        = book.isbn
-      p
-        = book.publisher_name
-      = link_to '一冊目に選ぶ', root_path, class: 'btn btn-raised btn-info'
+    div class = "card list-item-#{role}" id ="id-#{role}-#{book.isbn}"
+      .card
+        = link_to (image_tag(book.large_image_url)), book.affiliate_url
+      .float-right
+        p
+          = book.title
+        p
+          = book.author
+        p
+          = book.isbn
+        p
+          = book.publisher_name
+
+        button class = "btn btn-raised btn-info js-button-choice-#{role}" data-book-id ="#{book.isbn}"
+          | 本を選ぶ
+          

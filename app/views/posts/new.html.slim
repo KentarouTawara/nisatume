@@ -12,10 +12,7 @@
             .form-group
               = f.search_field :keyword, class: "form-control border border-success"
               = f.hidden_field :role, value: 'linking'
-            = f.submit '本の題名を検索', class: "form-control btn btn-success"
-
-        / 感想コメントの実装
-        .card-body
+              = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
     .col-6
       .card.border.border-info
@@ -29,6 +26,6 @@
             .form-group
               = f.search_field :keyword, class: "form-control border border-success"
               = f.hidden_field :role, value: 'linked'
-            = f.submit '本の題名を検索', class: "form-control btn btn-success"
+              = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
 
