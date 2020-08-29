@@ -1,5 +1,7 @@
-<% if @role == 'linking' %>
-    $("#linking_book_index").append("<%= j(render('posts/book_lists', result_books: @linking_books)) %>")
-<% else %>
-    $("#linked_book_index").append("<%= j(render('posts/book_lists', result_books: @linked_books)) %>")
+<% if @role == 'linking' %>　　
+  $(".results_search_linking").remove()
+  $("#linking_book_index").append("<%= j(render('posts/book_lists', result_books: @linking_books, role: @role)) %>")
+<% else %>　
+　$(".results_search_linked").remove()
+　$("#linked_book_index").append("<%= j(render('posts/book_lists', result_books: @linked_books, role: @role)) %>")
 <% end %>
