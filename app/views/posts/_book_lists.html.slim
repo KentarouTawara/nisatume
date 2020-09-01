@@ -2,17 +2,17 @@ div class = "results_search_#{role}"
   - result_books.each do |book|
     div.card class = "card list-item-#{role}" id = "id-#{role}-#{book.isbn}"
       .col-5
-        = image_tag book.large_image_url, id: "js-book-image-#{book.isbn}"
+        = image_tag book.large_image_url, id: "js-#{role}-image-#{book.isbn}"
       .float-right
-        p id = "js-book-title-#{book.isbn}"
+        p id = "js-#{role}-title-#{book.isbn}"
           = book.title
-        p id = "js-book-author-#{book.isbn}"
+        p id = "js-#{role}-author-#{book.isbn}"
           = book.author
-        p id = "js-book-isbn-#{book.isbn}"
+        p id = "js-#{role}-isbn-#{book.isbn}"
           = book.isbn
-        p id = "js-book-publisher-#{book.isbn}"
+        p id = "js-#{role}-publisher-#{book.isbn}"
           = book.publisher_name
         p
-          = link_to '楽天で買う', book.affiliate_url, class: 'btn btn-raised btn-warning', id: "js-book-url-#{book.isbn}"
+          = link_to '楽天で買う', book.affiliate_url, class: 'btn btn-raised btn-warning', id: "js-#{role}-url-#{book.isbn}"
         button class = "btn btn-raised btn-info js-button-choice-#{role}" data-book-id ="#{book.isbn}"
           | 本を選ぶ

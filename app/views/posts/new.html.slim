@@ -1,86 +1,36 @@
 .container
   .row
-    .card.col-6
-      .card-header
-        h3.text-center
-          | 一冊目を選ぶ
-      = form_with url: search_posts_path, method: :get, id: 'linking_book_index', remote: true do |s|
-        .form-group
-          = s.search_field :keyword, class: "form-control border border-success"
-          = s.hidden_field :role, value: 'linking'
-          = s.submit '本の題名を検索', class: "form-control btn btn-success"
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 一冊目を選ぶ
+        .card-body
+          = form_with url: search_posts_path, method: :get, id: 'linking_book_index', remote: true do |f|
+            .form-group
+              = f.search_field :keyword, class: "form-control border border-success"
+              = f.hidden_field :role, value: 'linking'
+              = f.submit '本の題名を検索', class: "form-control btn btn-success"
+        .card-body
+          = label_tag :linking_content, '感想'
+          = text_area_tag :linking_content, nil , class: 'form-control', rows: 10
 
-      .card-body
-        = form_with model: @post_form, url: posts_path, local: true do |f|
-          .form-group
-          = f.hidden_field :linking_book_title
-          = f.hidden_field :linking_book_author
-          = f.hidden_field :linking_book_isbn
-          = f.hidden_field :linking_book_publisher
-          = f.hidden_field :linking_book_image
-          = f.hidden_field :linking_book_url
-          = f.label :linking_book_content, '感想'
-          = f.text_area :linking_book_content, class: 'form-control'
-/ .container
-/   .row
-/     .card.col-12
-/       table.table.col-12
-/         tr
-/           th.text-center
-/             | 一冊目を選ぶ
-/           th.text-center
-/             | 二冊目を選ぶ
-/       = form_with model: @post_form, url: posts_path, local: true do |f|
-/         table.table.col-12
-/         tr
-/           td
-/             = form_with url: search_posts_path, method: :get, id: 'linking_book_index', remote: true do |s|
-/               .form-group
-/                 = s.search_field :keyword, class: "form-control border border-success"
-/                 = s.hidden_field :role, value: 'linking'
-/                 = s.submit '本の題名を検索', class: "form-control btn btn-success"
-/           td
-/             = form_with url: search_posts_path, method: :get, id: 'linking_book_index', remote: true do |q|
-/               .form-group
-/                 = q.search_field :keyword, class: "form-control border border-success"
-/                 = q.hidden_field :role, value: 'linking'
-/                 = q.submit '本の題名を検索', class: "form-control btn btn-success"
-/         tr
-/           td
-/             = f.text_field :linking_book_content
-/           td
-/             | 26
-/         tr
-/           td
-/             | Tanaka
-/           td
-/             | 36
-/
-/       .card.border.border-info
-/         .card-header
-/           .text-center
-/             | 一冊目を選ぶ
-/         /ajax通信で一覧を返す
-/         /本検索機能の実装
-/         .card-body
-/           = form_with model: @post_form, url: posts_path, local: true do |f|
-/         .card-body
-/           = form_with url: search_posts_path, method: :get, id:'linking_book_index', remote: true do |f|
-/             .form-group
-/               = f.search_field :keyword, class: "form-control border border-success"
-/               = f.hidden_field :role, value: 'linking'
-/               = f.submit '本の題名を検索', class: "form-control btn btn-success"
-/
-/     .col-6
-/       .card.border.border-info
-/         .card-header
-/           .text-center
-/             | 二冊目を選ぶ
-/         /ajax通信で一覧を返す
-/         /本検索機能の実装
-/         .card-body
-/           = form_with url: search_posts_path, method: :get, id: 'linked_book_index', remote: true do |f|
-/             .form-group
-/               = f.search_field :keyword, class: "form-control border border-success"
-/               = f.hidden_field :role, value: 'linked'
-/               = f.submit '本の題名を検索', class: "form-control btn btn-success"
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 二冊目を選ぶ
+        .card-body
+          = form_with url: search_posts_path, method: :get, id: 'linked_book_index', remote: true do |f|
+            .form-group
+              = f.search_field :keyword, class: "form-control border border-success"
+              = f.hidden_field :role, value: 'linked'
+              = f.submit '本の題名を検索', class: "form-control btn btn-success"
+
+        .card-body
+          = label_tag :linked_content, '感想'
+          = text_area_tag :linked_content, '', class: 'form-control', rows: 10
+
+    .col.text-center
+      button.btn.btn-danger.btn-raised.submit-button id = 'submit-button'
+        | 投稿する
