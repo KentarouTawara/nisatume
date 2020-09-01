@@ -1,4 +1,4 @@
-class SearchBooksForm
+class PostForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
