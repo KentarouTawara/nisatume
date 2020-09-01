@@ -1,18 +1,18 @@
 div class = "results_search_#{role}"
   - result_books.each do |book|
-    div class = "card list-item-#{role}" id ="id-#{role}-#{book.isbn}"
-      .card
-        = link_to (image_tag(book.large_image_url)), book.affiliate_url
+    div.card class = "card list-item-#{role}" id = "id-#{role}-#{book.isbn}"
+      .col-5
+        = image_tag book.large_image_url, id: "js-book-image-#{book.isbn}"
       .float-right
-        p
+        p id = "js-book-title-#{book.isbn}"
           = book.title
-        p
+        p id = "js-book-author-#{book.isbn}"
           = book.author
-        p
+        p id = "js-book-isbn-#{book.isbn}"
           = book.isbn
-        p
+        p id = "js-book-publisher-#{book.isbn}"
           = book.publisher_name
-
+        p
+          = link_to '楽天で買う', book.affiliate_url, class: 'btn btn-raised btn-warning', id: "js-book-url-#{book.isbn}"
         button class = "btn btn-raised btn-info js-button-choice-#{role}" data-book-id ="#{book.isbn}"
           | 本を選ぶ
-          
