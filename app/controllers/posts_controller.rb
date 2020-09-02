@@ -9,6 +9,8 @@ class PostsController < ApplicationController
       params[:linking][:content])
     @linked_book_content = LinkedBook.create(post_id: @post.id, book_id: @linked_book.id, content:
       params[:linked][:content])
+
+    render json: { post: @post.id }, status: :ok
   end
 
   def search
@@ -19,6 +21,10 @@ class PostsController < ApplicationController
       @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
       @role = params[:role]
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
