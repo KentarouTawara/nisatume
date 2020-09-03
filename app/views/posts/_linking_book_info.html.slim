@@ -1,0 +1,32 @@
+.card-body
+  .book-image.text-center
+    = image_tag post.linking_book.book.book_image
+  table.table.text-center
+    tbody
+      tr
+        th
+          | タイトル
+        td
+          = post.linking_book.book.title
+      tr
+        th
+          | 著者
+        td
+          = post.linking_book.book.author
+      tr
+        th
+          | 出版社
+        td
+          = post.linking_book.book.publisher
+      tr
+        th
+          | isbn
+        td
+          = post.linking_book.book.isbn
+  .text-center
+    = link_to '楽天で買う', post.linking_book.book.book_url, class: 'btn btn-raised btn-warning'
+.card-body
+  p
+    |　感想
+  .text-justify.border
+    = simple_format(post.linking_book.content)
