@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 一冊目
+        = render 'linking_book_info', post: @post
+
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 二冊目
+        = render 'linked_book_info', post: @post
+
+
+    .col.text-center
+      = link_to '編集する', edit_post_path(@post), class: 'btn btn-raised btn-success'

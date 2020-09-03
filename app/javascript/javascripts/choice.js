@@ -82,6 +82,8 @@ $(function () {
         }).done(function (data) {
             console.log('ok')
             console.log(data)
+            console.log(data.post)
+            location.href= "/posts/" + data.post
 
         }).fail(function (data) {
             console.log('bad')
