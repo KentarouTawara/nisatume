@@ -1,0 +1,9 @@
+.container
+  .row.justify-content-center
+    .card.col-8
+      .card-body
+        - if @posts.present?
+          = render partial: 'mypages/post', collection: @posts
+        - else
+          h2.text-center
+            | 投稿はまだありません。最初の投稿をしましょう！
