@@ -1,2 +1,19 @@
-p
-  | 通ってる？
+.container
+  .row
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 一冊目
+        = render 'linking_book_edit', post: @post
+
+    .col-6
+      .card
+        .card-header
+          .text-center
+            | 二冊目
+        = render 'linked_book_edit', post: @post
+
+  .col.text-center
+    button.btn.btn-success.btn-raised.update-button id = 'update-button' data-post-id ="#{@post.id}"
+      | 更新する

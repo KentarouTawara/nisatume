@@ -83,7 +83,7 @@ $(function () {
             console.log('ok')
             console.log(data)
             console.log(data.post)
-            location.href= "/posts/" + data.post
+            location.href= "/mypage"
 
         }).fail(function (data) {
             console.log('bad')

@@ -13,7 +13,7 @@
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
         .card-body
           = label_tag :linking_content, '感想'
-          = text_area_tag :linking_content, nil , class: 'form-control', rows: 10
+          = text_area_tag :linking_content, nil, class: 'form-control', rows: 10
 
     .col-6
       .card
@@ -29,7 +29,7 @@
 
         .card-body
           = label_tag :linked_content, '感想'
-          = text_area_tag :linked_content, '', class: 'form-control', rows: 10
+          = text_area_tag :linked_content, nil, class: 'form-control', rows: 10
 
     .col.text-center
       button.btn.btn-danger.btn-raised.submit-button id = 'submit-button'

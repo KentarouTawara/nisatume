@@ -17,3 +17,5 @@
 
     .col.text-center
       = link_to '編集する', edit_post_path(@post), class: 'btn btn-raised btn-success'
+      = link_to '削除する', post_path(@post), class: 'btn btn-raised btn-danger',
+               method: :delete, data:{ confirm: '削除しますか？' }
