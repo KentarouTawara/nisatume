@@ -8,7 +8,7 @@ header
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.ml-auto.main-nav.align-items-center
         li.nav-item
-          = current_user.name
+          = link_to current_user.name, mypage_path, class: 'nav-link'
         li.nav-item
           = link_to '紹介カードを作成する', new_post_path, class: 'nav-link'
         li.nav-item.nav-link
