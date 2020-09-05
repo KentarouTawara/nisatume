@@ -31,6 +31,20 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.linking_book.update(content: params[:linking][:content])
+    @post.linked_book.update(content: params[:linked][:content])
+
+    render json: { post: @post.id }, status: :ok
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to mypage_path, success '削除しました'
+  end
+
   private
 
   def linking_book_params
