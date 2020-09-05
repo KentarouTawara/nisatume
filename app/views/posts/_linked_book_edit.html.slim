@@ -24,7 +24,7 @@
         td
           = post.linked_book.book.isbn
   .text-center
-    = link_to '楽天で買う', post.linked_book.book.book_url, class: 'btn btn-raised btn-warning'
+    = link_to '楽天で買う', post.linked_book.book.book_url, class: 'btn btn-raised btn-danger'
 
   .card-body
     = label_tag :linked_content, '感想'
