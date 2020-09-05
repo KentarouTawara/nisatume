@@ -1,0 +1,31 @@
+.card-body
+  .book-image.text-center.bg-light
+    = image_tag post.linked_book.book.book_image
+  table.table.text-center
+    tbody
+      tr
+        th
+          | タイトル
+        td
+          = post.linked_book.book.title
+      tr
+        th
+          | 著者
+        td
+          = post.linked_book.book.author
+      tr
+        th
+          | 出版社
+        td
+          = post.linked_book.book.publisher
+      tr
+        th
+          | isbn
+        td
+          = post.linked_book.book.isbn
+  .text-center
+    = link_to '楽天で買う', post.linked_book.book.book_url, class: 'btn btn-raised btn-warning'
+
+  .card-body
+    = label_tag :linked_content, '感想'
+    = text_area_tag :linked_content, post.linked_book.content, class: 'form-control', rows: 10
