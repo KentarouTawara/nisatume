@@ -11,9 +11,6 @@
               = f.search_field :keyword, class: "form-control border border-success"
               = f.hidden_field :role, value: 'linking'
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
-        .card-body
-          = label_tag :linking_content, '感想'
-          = text_area_tag :linking_content, nil, class: 'form-control', rows: 10
 
     .col-6
       .card
@@ -27,10 +24,78 @@
               = f.hidden_field :role, value: 'linked'
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
-        .card-body
-          = label_tag :linked_content, '感想'
-          = text_area_tag :linked_content, nil, class: 'form-control', rows: 10
+  .row
+    .col-6 id = 'linking_book'
+      .card
+        .book-image.text-center.bg-light id = 'linking_book_image'
+          = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linking_default_image'
 
-    .col.text-center
-      button.btn.btn-danger.btn-raised.submit-button id = 'submit-button'
-        | 投稿する
+        table.table
+          tbody.text-center
+            tr
+              th
+                | タイトル
+              td id = 'linking_book_title'
+                |
+            tr
+              th
+                | 著者
+              td id = 'linking_book_author'
+
+            tr
+              th
+                | 出版社
+              td id = 'linking_book_publisher'
+
+            tr
+              th
+                | isbn
+              td id = 'linking_book_isbn'
+
+            .text-center id = 'linking_book_url'
+              = link_to '楽天で買う', '#', class: 'btn btn-raised btn-warning', target: :_blank
+
+    .col-6 id = 'linked_book'
+      .card
+        .book-image.text-center.bg-light id = 'linked_book_image'
+          = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linked_default_image'
+        table.table
+          tbody.text-center
+            tr
+              th
+                | タイトル
+              td id = 'linked_book_title'
+
+            tr
+              th
+                | 著者
+              td id = 'linked_book_author'
+
+            tr
+              th
+                | 出版社
+              td id = 'linked_book_publisher'
+
+            tr
+              th
+                | isbn
+              td id = 'linked_book_isbn'
+
+            .text-center id = 'linked_book_url'
+              = link_to '楽天で買う', '#', class: 'btn btn-raised btn-warning', target: :_blank
+
+    .card-body id = 'review_area' style = 'display: none;'
+      = form_with model: @post_form, url: posts_path, local: true do |f|
+        .row
+          .col-6
+            .card
+              .card-body
+                = f.label :linking_content, '感想'
+                = f.text_area :linking_content, class: 'form-control bg-light', rows: 10
+          .col-6
+            .card
+              .card-body
+                = f.label :linked_content, '感想'
+                = f.text_area :linked_content, class: 'form-control bg-light', rows: 10
+          .col-12.text-center.mt-3
+            = f.submit '投稿する', class: 'form-control btn btn-success'

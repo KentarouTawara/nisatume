@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  def new; end
+  def new
+    @post_form = PostForm.new
+  end
 
   def create
     @post = current_user.posts.create
     @linking_book = Book.create(linking_book_params)
+    # Bookが重複する？　find_or_create_byみたいなやつ　トランザクションを貼る
+    # isbがユニークだから
     @linked_book = Book.create(linked_book_params)
+    # 下記をきれいにしたい。
     @linking_book_content = LinkingBook.create(post_id: @post.id, book_id: @linking_book.id, content:
       params[:linking][:content])
     @linked_book_content = LinkedBook.create(post_id: @post.id, book_id: @linked_book.id, content:
@@ -42,7 +47,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to mypage_path success '削除しました'
+    redirect_to mypage_path, success: '削除しました'
   end
 
   private

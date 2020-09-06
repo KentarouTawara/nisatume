@@ -1,18 +1,19 @@
 div class = "results_search_#{role}"
   - result_books.each do |book|
     div.card class = "card list-item-#{role}" id = "id-#{role}-#{book.isbn}"
-      .col-5
-        = image_tag book.large_image_url, id: "js-#{role}-image-#{book.isbn}"
-      .float-right
-        p id = "js-#{role}-title-#{book.isbn}"
-          = book.title
-        p id = "js-#{role}-author-#{book.isbn}"
-          = book.author
-        p id = "js-#{role}-isbn-#{book.isbn}"
-          = book.isbn
-        p id = "js-#{role}-publisher-#{book.isbn}"
-          = book.publisher_name
-        p
-          = link_to '楽天で買う', book.affiliate_url, class: 'btn btn-raised btn-warning', id: "js-#{role}-url-#{book.isbn}"
-        button class = "btn btn-raised btn-info js-button-choice-#{role}" data-book-id ="#{book.isbn}"
-          | 本を選ぶ
+      .row.bg-light
+        .col-6.bg-light.text-center
+          = image_tag book.large_image_url, id: "js-#{role}-image-#{book.isbn}"
+        .col-6.text-center
+          p id = "js-#{role}-title-#{book.isbn}"
+            = book.title
+          p id = "js-#{role}-author-#{book.isbn}"
+            = book.author
+          p id = "js-#{role}-isbn-#{book.isbn}"
+            = book.isbn
+          p id = "js-#{role}-publisher-#{book.isbn}"
+            = book.publisher_name
+          p
+            = link_to '楽天で買う', book.affiliate_url, class: 'btn btn-raised btn-danger', id: "js-#{role}-url-#{book.isbn}"
+          button class = "btn btn-raised btn-info js-button-choice-#{role}" data-book-id ="#{book.isbn}"
+            | 本を選ぶ

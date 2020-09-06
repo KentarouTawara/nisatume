@@ -3,19 +3,22 @@ $(function () {
     $(document).on('click','.js-button-choice-linking', function (e) {
         e.preventDefault();
         const isbn = $(this).data('book-id')
-        const choiceBook = $('#id-linking-' + isbn).addClass('linking-book')
 
-        $(".list-item-linking").hide();
-        $(choiceBook).show()
+        $('#linking_book_title').html($("#js-linking-title-" + isbn).text())
+        $('#linking_book_author').html($("#js-linking-author-" + isbn).text())
+        $('#linking_book_isbn').html($("#js-linking-isbn-" + isbn).text())
+        $('#linking_book_publisher').html($("#js-linking-publisher-" + isbn).text())
 
-        $('#linking_title').val($("#js-linking-title-" + isbn).html())
+        const book_image = $("#js-linking-image-" + isbn).attr('src')
+        $("<img src = " + book_image + ">").appendTo('div#linking_book_image')
+        $("#linking_default_image").remove()
 
-        $("#js-linking-title-" + isbn).attr('id', 'linking-title');
-        $("#js-linking-author-" + isbn).attr('id', 'linking-author');
-        $("#js-linking-isbn-" + isbn).attr('id', 'linking-isbn');
-        $("#js-linking-publisher-" + isbn).attr('id', 'linking-publisher');
-        $("#js-linking-image-" + isbn).attr('id', 'linking-image');
-        $("#js-linking-url-" + isbn).attr('id', 'linking-url');
+        const book_url = $("#js-linking-url-" + isbn).attr('href')
+        $('#linking_book_url a').attr("href", book_url)
+        $('.results_search_linking').remove()
+        $('#linking_book').show()
+
+
     })
 });
 
@@ -23,17 +26,24 @@ $(function () {
     $(document).on('click','.js-button-choice-linked', function (e) {
         e.preventDefault();
         const isbn = $(this).data('book-id')
-        const choiceBook = $('#id-linked-' + isbn);
+        // const choiceBook = $('#id-linked-' + isbn);
+        //
+        // $(".list-item-linked").hide();
+        // $(choiceBook).show()
 
-        $(".list-item-linked").hide();
-        $(choiceBook).show()
+        $('#linked_book_title').html($("#js-linked-title-" + isbn).text())
+        $('#linked_book_author').html($("#js-linked-author-" + isbn).text())
+        $('#linked_book_isbn').html($("#js-linked-isbn-" + isbn).text())
+        $('#linked_book_publisher').html($("#js-linked-publisher-" + isbn).text())
 
-        $("#js-linked-title-" + isbn).attr('id', 'linked-title');
-        $("#js-linked-author-" + isbn).attr('id', 'linked-author');
-        $("#js-linked-isbn-" + isbn).attr('id', 'linked-isbn');
-        $("#js-linked-publisher-" + isbn).attr('id', 'linked-publisher');
-        $("#js-linked-image-" + isbn).attr('id', 'linked-image');
-        $("#js-linked-url-" + isbn).attr('id', 'linked-url');
+        const book_image = $("#js-linked-image-" + isbn).attr('src')
+        $("<img src = " + book_image + ">").appendTo('div#linked_book_image')
+        $("#linked_default_image").remove()
+
+        const book_url = $("#js-linked-url-" + isbn).attr('href')
+        $('#linked_book_url a').attr("href", book_url)
+        $('.results_search_linked').remove()
+        $('#review_area').show()
     })
 });
 
@@ -56,38 +66,38 @@ $(function () {
         const linkedUrl = $("#linked-url").attr('href')
         const linkedContent = $("#linked_content").val()
 
-        $.ajax({
-            type: "POST",
-            url: "/posts",
-            data: {
-                linking: {
-                    title: linkingTitle,
-                    author: linkingAuthor,
-                    isbn: linkingIsbn,
-                    publisher: linkingPublisher,
-                    book_image: linkingImage,
-                    book_url: linkingUrl,
-                    content: linkingContent
-                },
-                linked: {
-                    title: linkedTitle,
-                    author: linkedAuthor,
-                    isbn: linkedIsbn,
-                    publisher: linkedPublisher,
-                    book_image: linkedImage,
-                    book_url: linkedUrl,
-                    content: linkedContent
-                }
-            }
-        }).done(function (data) {
-            console.log('ok')
-            console.log(data)
-            console.log(data.post)
-            location.href= "/mypage"
-
-        }).fail(function (data) {
-            console.log('bad')
-            console.log(data)
-        })
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/posts",
+        //     data: {
+        //         linking: {
+        //             title: linkingTitle,
+        //             author: linkingAuthor,
+        //             isbn: linkingIsbn,
+        //             publisher: linkingPublisher,
+        //             book_image: linkingImage,
+        //             book_url: linkingUrl,
+        //             content: linkingContent
+        //         },
+        //         linked: {
+        //             title: linkedTitle,
+        //             author: linkedAuthor,
+        //             isbn: linkedIsbn,
+        //             publisher: linkedPublisher,
+        //             book_image: linkedImage,
+        //             book_url: linkedUrl,
+        //             content: linkedContent
+        //         }
+        //     }
+        // }).done(function (data) {
+        //     console.log('ok')
+        //     console.log(data)
+        //     console.log(data.post)
+        //     location.href= "/mypage"
+        //
+        // }).fail(function (data) {
+        //     console.log('bad')
+        //     console.log(data)
+        // })
     });
 });
