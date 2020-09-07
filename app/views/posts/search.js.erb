@@ -1,7 +1,16 @@
-<% if @role == 'linking' %>　　
-  $(".results_search_linking").remove()
-  $("#linking_book_index").append("<%= j(render('posts/book_lists', result_books: @linking_books, role: @role)) %>")
-<% else %>　
-　$(".results_search_linked").remove()
-　$("#linked_book_index").append("<%= j(render('posts/book_lists', result_books: @linked_books, role: @role)) %>")
+$('#error_messages').remove()
+<% if @keyword.present? %>
+  <% if @role == 'linking' %>
+    $(".results_search_linking").remove()
+    $("#linking_book_index").append("<%= j(render('posts/book_lists', result_books: @linking_books, role: @role)) %>")
+  <% else %>　
+　  $(".results_search_linked").remove()
+  　$("#linked_book_index").append("<%= j(render('posts/book_lists', result_books: @linked_books, role: @role)) %>")
+  <% end %>
+<% else %>
+<% if @role == 'linking' %>
+    $("#linking_book_index").prepend("<%= j(render('posts/fill_in_messages')) %>")
+  <% else %>
+   $("#linked_book_index").prepend("<%= j(render('posts/fill_in_messages')) %>")
+  <% end %>
 <% end %>
