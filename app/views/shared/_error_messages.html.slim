@@ -1,0 +1,9 @@
+- if object.errors.present?
+  #error_messages.alert.alert-danger
+    ul.mb-0
+      - object.errors.full_messages.each do |msg|
+        li
+          = msg
+    ul.mb-0
+      li
+        | 本をすでに選んでいる場合は、再度選ぶ必要はありません

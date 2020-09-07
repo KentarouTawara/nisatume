@@ -9,3 +9,22 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
+
+  activemodel:
+    attributes:
+      post_form:
+        linking_title: '一冊目のタイトル'
+        linking_author: '一冊目の著者'
+        linking_isbn: '一冊目のisbn'
+        linking_publisher: '一冊目の出版社'
+        linking_image: '一冊目の画像'
+        linking_url: '一冊目のURL'
+        linking_content: '一冊目の感想'
+
+        linked_title: '二冊目のタイトル'
+        linked_author: '二冊目の著者'
+        linked_isbn: '二冊目のisbn'
+        linked_publisher: '二冊目の出版社'
+        linked_image: '二冊目の画像'
+        linked_url: '二冊目のURL'
+        linked_content: '二冊目の感想'

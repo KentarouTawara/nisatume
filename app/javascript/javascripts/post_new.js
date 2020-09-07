@@ -4,20 +4,36 @@ $(function () {
         e.preventDefault();
         const isbn = $(this).data('book-id')
 
-        $('#linking_book_title').html($("#js-linking-title-" + isbn).text())
-        $('#linking_book_author').html($("#js-linking-author-" + isbn).text())
-        $('#linking_book_isbn').html($("#js-linking-isbn-" + isbn).text())
-        $('#linking_book_publisher').html($("#js-linking-publisher-" + isbn).text())
+        // 一冊目の情報の取得
 
-        const book_image = $("#js-linking-image-" + isbn).attr('src')
-        $("<img src = " + book_image + ">").appendTo('div#linking_book_image')
+        const BookTitle = $("#js-linking-title-" + isbn).text()
+        const BookAuthor = $("#js-linking-author-" + isbn).text()
+        const BookIsbn = $("#js-linking-isbn-" + isbn).text()
+        const BookPublisher = $("#js-linking-publisher-" + isbn).text()
+        const BookImage = $("#js-linking-image-" + isbn).attr('src')
+        const BookUrl = $("#js-linking-url-" + isbn).attr('href')
+
+        // 選択した一冊目の表示
+        $('#linking_book_title').html(BookTitle)
+        $('#linking_book_author').html(BookAuthor)
+        $('#linking_book_isbn').html(BookIsbn )
+        $('#linking_book_publisher').html(BookPublisher )
+
+        $("<img src = " + BookImage + ">").appendTo('div#linking_book_image')
         $("#linking_default_image").remove()
 
-        const book_url = $("#js-linking-url-" + isbn).attr('href')
-        $('#linking_book_url a').attr("href", book_url)
+        $('#linking_book_url a').attr("href", BookUrl)
         $('.results_search_linking').remove()
-        $('#linking_book').show()
 
+        // hidden_fieldに格納
+        $('#post_form_linking_title').val(BookTitle)
+        $('#post_form_linking_author').val(BookAuthor)
+        $('#post_form_linking_isbn').val(BookIsbn)
+        $('#post_form_linking_publisher').val(BookPublisher)
+        $('#post_form_linking_image').val(BookImage)
+        $('#post_form_linking_url').val(BookUrl)
+
+        $('#choiced_linking_book').show()
 
     })
 });
@@ -26,78 +42,36 @@ $(function () {
     $(document).on('click','.js-button-choice-linked', function (e) {
         e.preventDefault();
         const isbn = $(this).data('book-id')
-        // const choiceBook = $('#id-linked-' + isbn);
-        //
-        // $(".list-item-linked").hide();
-        // $(choiceBook).show()
+        $('#review_area').show()
+        // 二冊目の情報の取得
 
-        $('#linked_book_title').html($("#js-linked-title-" + isbn).text())
-        $('#linked_book_author').html($("#js-linked-author-" + isbn).text())
-        $('#linked_book_isbn').html($("#js-linked-isbn-" + isbn).text())
-        $('#linked_book_publisher').html($("#js-linked-publisher-" + isbn).text())
+        const BookTitle = $("#js-linked-title-" + isbn).text()
+        const BookAuthor = $("#js-linked-author-" + isbn).text()
+        const BookIsbn = $("#js-linked-isbn-" + isbn).text()
+        const BookPublisher = $("#js-linked-publisher-" + isbn).text()
+        const BookImage = $("#js-linked-image-" + isbn).attr('src')
+        const BookUrl = $("#js-linked-url-" + isbn).attr('href')
 
-        const book_image = $("#js-linked-image-" + isbn).attr('src')
-        $("<img src = " + book_image + ">").appendTo('div#linked_book_image')
+        // 選択した二冊目の表示
+        $('#linked_book_title').html(BookTitle)
+        $('#linked_book_author').html(BookAuthor)
+        $('#linked_book_isbn').html(BookIsbn )
+        $('#linked_book_publisher').html(BookPublisher )
+
+        $("<img src = " + BookImage + ">").appendTo('div#linked_book_image')
         $("#linked_default_image").remove()
 
-        const book_url = $("#js-linked-url-" + isbn).attr('href')
-        $('#linked_book_url a').attr("href", book_url)
+        $('#linked_book_url a').attr("href", BookUrl)
         $('.results_search_linked').remove()
-        $('#review_area').show()
+
+        // hidden_fieldに格納
+        $('#post_form_linked_title').val(BookTitle)
+        $('#post_form_linked_author').val(BookAuthor)
+        $('#post_form_linked_isbn').val(BookIsbn)
+        $('#post_form_linked_publisher').val(BookPublisher)
+        $('#post_form_linked_image').val(BookImage)
+        $('#post_form_linked_url').val(BookUrl)
+
+        $('#choiced_linked_book').show()
     })
-});
-
-$(function () {
-    $(document).on('click', '.submit-button', function (e) {
-        e.preventDefault();
-        const linkingTitle = $("#linking-title").text()
-        const linkingAuthor = $("#linking-author").text()
-        const linkingIsbn = $("#linking-isbn").text()
-        const linkingPublisher = $("#linking-publisher").text()
-        const linkingImage = $("#linking-image").attr('src')
-        const linkingUrl = $("#linking-url").attr('href')
-        const linkingContent = $("#linking_content").val()
-
-        const linkedTitle = $("#linked-title").text()
-        const linkedAuthor = $("#linked-author").text()
-        const linkedIsbn = $("#linked-isbn").text()
-        const linkedPublisher = $("#linked-publisher").text()
-        const linkedImage = $("#linked-image").attr('src')
-        const linkedUrl = $("#linked-url").attr('href')
-        const linkedContent = $("#linked_content").val()
-
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/posts",
-        //     data: {
-        //         linking: {
-        //             title: linkingTitle,
-        //             author: linkingAuthor,
-        //             isbn: linkingIsbn,
-        //             publisher: linkingPublisher,
-        //             book_image: linkingImage,
-        //             book_url: linkingUrl,
-        //             content: linkingContent
-        //         },
-        //         linked: {
-        //             title: linkedTitle,
-        //             author: linkedAuthor,
-        //             isbn: linkedIsbn,
-        //             publisher: linkedPublisher,
-        //             book_image: linkedImage,
-        //             book_url: linkedUrl,
-        //             content: linkedContent
-        //         }
-        //     }
-        // }).done(function (data) {
-        //     console.log('ok')
-        //     console.log(data)
-        //     console.log(data.post)
-        //     location.href= "/mypage"
-        //
-        // }).fail(function (data) {
-        //     console.log('bad')
-        //     console.log(data)
-        // })
-    });
 });

@@ -1,5 +1,5 @@
 .container
-  .row
+  .row.search-box
     .col-6
       .card
         .card-header
@@ -25,8 +25,8 @@
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
   .row
-    .col-6 id = 'linking_book'
-      .card
+    .col-6
+      .card id = 'choiced_linking_book' style="display: none;"
         .book-image.text-center.bg-light id = 'linking_book_image'
           = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linking_default_image'
 
@@ -55,8 +55,8 @@
             .text-center id = 'linking_book_url'
               = link_to '楽天で買う', '#', class: 'btn btn-raised btn-warning', target: :_blank
 
-    .col-6 id = 'linked_book'
-      .card
+    .col-6
+      .card id = 'choiced_linked_book' style="display: none;"
         .book-image.text-center.bg-light id = 'linked_book_image'
           = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linked_default_image'
         table.table
@@ -84,17 +84,30 @@
             .text-center id = 'linked_book_url'
               = link_to '楽天で買う', '#', class: 'btn btn-raised btn-warning', target: :_blank
 
-    .card-body id = 'review_area' style = 'display: none;'
+    .card-body id = 'review_area'
       = form_with model: @post_form, url: posts_path, local: true do |f|
+        = render 'shared/error_messages', { object: f.object }
         .row
           .col-6
             .card
               .card-body
+                = f.hidden_field :linking_title
+                = f.hidden_field :linking_author
+                = f.hidden_field :linking_isbn
+                = f.hidden_field :linking_publisher
+                = f.hidden_field :linking_image
+                = f.hidden_field :linking_url
                 = f.label :linking_content, '感想'
                 = f.text_area :linking_content, class: 'form-control bg-light', rows: 10
           .col-6
             .card
               .card-body
+                = f.hidden_field :linked_title
+                = f.hidden_field :linked_author
+                = f.hidden_field :linked_isbn
+                = f.hidden_field :linked_publisher
+                = f.hidden_field :linked_image
+                = f.hidden_field :linked_url
                 = f.label :linked_content, '感想'
                 = f.text_area :linked_content, class: 'form-control bg-light', rows: 10
           .col-12.text-center.mt-3
