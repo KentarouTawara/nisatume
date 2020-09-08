@@ -1,4 +1,9 @@
 div class = "results_search_#{role}"
+  .count.alert.alert-info
+    ul.mb-0
+      li
+        | #{result_books.count}件 表示しています
+
   - result_books.each do |book|
     div.card class = "card list-item-#{role}" id = "id-#{role}-#{book.isbn}"
       .row.bg-light
