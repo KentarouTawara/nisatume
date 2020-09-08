@@ -4,7 +4,7 @@ class LinkedBookValidator < ActiveModel::Validator
                                                                                                  .linked_publisher
                                                                                                    .blank? || record
                                                                                                               .linked_image.blank? || record.linked_url.blank?
-      record.errors[:linked_book] << '二冊目を選んでください'
+      record.errors[:base] << '二冊目を選んでください'
     end
   end
 end
