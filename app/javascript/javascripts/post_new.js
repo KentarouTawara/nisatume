@@ -19,10 +19,10 @@ $(function () {
         $('#linking_book_isbn').html(BookIsbn )
         $('#linking_book_publisher').html(BookPublisher )
 
-        $("<img src = " + BookImage + ">").appendTo('div#linking_book_image')
-        $("#linking_default_image").remove()
-
+        $('#linking_book_image img').attr("src", BookImage)
         $('#linking_book_url a').attr("href", BookUrl)
+
+        // 一覧を削除
         $('.results_search_linking').remove()
 
         // hidden_fieldに格納
@@ -58,10 +58,11 @@ $(function () {
         $('#linked_book_isbn').html(BookIsbn )
         $('#linked_book_publisher').html(BookPublisher )
 
-        $("<img src = " + BookImage + ">").appendTo('div#linked_book_image')
-        $("#linked_default_image").remove()
+        $('#linked_book_image img').attr("src", BookImage)
 
         $('#linked_book_url a').attr("href", BookUrl)
+
+        // 一覧を削除
         $('.results_search_linked').remove()
 
         // hidden_fieldに格納
