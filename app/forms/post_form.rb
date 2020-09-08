@@ -33,6 +33,7 @@ class PostForm
                                            publisher: self.linking_publisher,
                                            book_image: self.linking_image,
                                            book_url: self.linked_url)
+      @linking_book.id = Book.find_by(isbn: self.linking_isbn).id if @linking_book.id.nil?
 
       @linked_book = Book.find_or_create_by(title: self.linked_title,
                                            author: self.linked_author,
@@ -41,13 +42,17 @@ class PostForm
                                            book_image: self.linked_image,
                                            book_url: self.linked_url)
 
-      @linking_book_content = LinkingBook.create(post_id: @post.id,
+      @linked_book.id = Book.find_by(isbn: self.linked_isbn).id if @linked_book.id.nil?
+
+      @linking_book_content = LinkingBook.new(post_id: @post.id,
                                                book_id: @linking_book.id,
                                                content: self.linking_content)
 
-      @linked_book_content = LinkedBook.create(post_id: @post.id,
+      @linked_book_content = LinkedBook.new(post_id: @post.id,
                                                book_id: @linked_book.id,
                                                content: self.linked_content)
+      @linking_book_content.save!
+      @linked_book_content.save!
     end
   end
 end
