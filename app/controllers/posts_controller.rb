@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post_form = PostForm.new
   end
@@ -18,9 +22,9 @@ class PostsController < ApplicationController
     @keyword = params[:keyword]
     if @keyword.present?
       if @role == 'linking'
-        @linking_books = RakutenWebService::Books::Book.search(title: params[:keyword], author: params[:keyword])
+        @linking_books = RakutenWebService::Books::Book.search(title: params[:keyword])
       else
-        @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword], author: params[:keyword])
+        @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
       end
     end
   end

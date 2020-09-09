@@ -1,7 +1,7 @@
 header
   nav.navbar.navbar-expand-lg.navigation.navbar-dark.bg-info
     a.navbar-brand[href="/"]
-      |ロゴ
+      |二冊目
 
     button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
@@ -10,6 +10,8 @@ header
         li.nav-item
           = link_to current_user.name, mypage_path, class: 'nav-link'
         li.nav-item
-          = link_to '紹介カードを作成する', new_post_path, class: 'nav-link'
+          = link_to '投稿一覧', posts_path, class: 'nav-link'
+        li.nav-item
+          = link_to '新規投稿', new_post_path, class: 'nav-link'
         li.nav-item.nav-link
           = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
