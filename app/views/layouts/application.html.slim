@@ -9,6 +9,14 @@ html
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
+
+    - twitter_card = get_twitter_card_info(@post ? @post : nil)
+    meta name="twitter:card" content= twitter_card[:card] /
+    meta name="twitter:site" content= twitter_card[:site] /
+    meta property="og:url" content= twitter_card[:url] /
+    meta property="og:title" content= twitter_card[:title] /
+    meta property="og:description" content= twitter_card[:description] /
+    meta property="og:image" content= twitter_card[:image] /
   body
     - if logged_in?
       = render 'shared/login_header'

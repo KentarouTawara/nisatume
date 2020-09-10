@@ -1,0 +1,12 @@
+.container
+  .row.justify-content-center
+    .card.col-8
+      .card-header
+        h4.text-center
+          | 投稿一覧
+      .card-body
+        - if @posts.present?
+          = render @posts
+        - else
+          h2.text-center
+            | 投稿はまだありません。最初の投稿をしましょう！
