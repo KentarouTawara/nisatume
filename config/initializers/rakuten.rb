@@ -1,10 +1,14 @@
 RakutenWebService.configure do |config|
+  if Rails.env == 'production' || 'test'
   # (必須) アプリケーションID
-  config.application_id = Rails.application.credentials.dig(:rakuten, :application_id)
+    config.application_id = Rails.application.credentials.dig(:rakuten, :local, :application_id)
 
   # (任意) 楽天アフィリエイトID
-  config.affiliate_id = Rails.application.credentials.dig(:rakuten, :affiliate_id) # default: nil
-
+    config.affiliate_id = Rails.application.credentials.dig(:rakuten, :local, :affiliate_id) # default: nil
+  else
+    config.application_id = Rails.application.credentials.dig(:rakuten, :production, :application_id)
+    config.affiliate_id = Rails.application.credentials.dig(:rakuten, :production, :affiliate_id) # default: nil
+  end
 # (任意) リクエストのリトライ回数
 # 一定期間の間のリクエスト数が制限を超えた時、APIはリクエスト過多のエラーを返す。
 # その後、クライアントは少し間を空けた後に同じリクエストを再度送る。
