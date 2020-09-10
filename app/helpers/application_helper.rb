@@ -1,11 +1,11 @@
 module ApplicationHelper
-  # def get_twitter_card_info(post)
-  #   twitter_card = {}
-  #   twitter_card[:url] = "https://[アプリ名].herokuapp.com/?h=#{h}"
-  #   twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/[アプリ名]-production/images/#{h}.png"
-  #   twitter_card[:title] = 'Web本棚'
-  #   twitter_card[:card] = 'summary_large_image'
-  #   twitter_card[:description] = '自分のお気に入りの本をシェアできます'
-  #   twitter_card
-  # end
+  def get_twitter_card_info(post)
+    twitter_card = {}
+    twitter_card[:url] = "https://nisatume.com/posts/#{post.id}"
+    twitter_card[:image] = "https://nisatume.com/img/rogo.png"
+    twitter_card[:title] = '二冊目'
+    twitter_card[:card] = 'summary_large_image'
+    twitter_card[:description] = '本と本をつなげよう'
+    twitter_card
+  end
 end
