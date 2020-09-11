@@ -8,8 +8,8 @@ header
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.ml-auto.main-nav.align-items-center
         li.nav-item
-          a.nav-link[href="login"]
-            |紹介カードを作成する
+          = link_to '投稿一覧', posts_path, class: 'nav-link'
+
         li.nav-item.nav-link
           = link_to '新規登録', new_user_path, class: 'nav-link'
         li.nav-item
