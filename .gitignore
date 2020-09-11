@@ -41,3 +41,5 @@ yarn-debug.log*
 
 # Ignore bundle dir
 /vendor/bundle
+
+.env
