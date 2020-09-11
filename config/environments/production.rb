@@ -112,9 +112,9 @@ Rails.application.configure do
 end
 
 RakutenWebService.configure do |config|
-  config.application_id = Rails.application.credentials.dig(:rakuten, :production, :application_id)
+  config.application_id = Rails.application.credentials.dig(:rakuten, :application_id)
   # (任意) 楽天アフィリエイトID
-  config.affiliate_id = '1cc39bfa.8872cba0.1cc39bfb.aedeac29' # default: nil
+  config.affiliate_id = Rails.application.credentials.dig(:rakuten, :affiliate_id) # default: nil
 
 # (任意) リクエストのリトライ回数
 # 一定期間の間のリクエスト数が制限を超えた時、APIはリクエスト過多のエラーを返す。
