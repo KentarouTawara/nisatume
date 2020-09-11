@@ -112,7 +112,7 @@ Rails.application.configure do
 end
 
 RakutenWebService.configure do |config|
-  config.application_id = '1066102078556562125'
+  config.application_id = Rails.application.credentials.dig(:rakuten, :production, :application_id)
   # (任意) 楽天アフィリエイトID
   config.affiliate_id = '1cc39bfa.8872cba0.1cc39bfb.aedeac29' # default: nil
 
