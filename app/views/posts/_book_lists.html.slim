@@ -5,7 +5,7 @@ div class = "results_search_#{role}"
         | #{result_books.count}件 表示しています
 
   - result_books.each do |book|
-    div.card class = "card list-item-#{role}" id = "id-#{role}-#{book.isbn}"
+    div.card class = "card list-item-#{role}"
       .row.bg-light
         .col-6.bg-light.text-center
           = image_tag book.large_image_url, id: "js-#{role}-image-#{book.isbn}"
