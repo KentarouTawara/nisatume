@@ -16,10 +16,11 @@
 
 
     .col.text-center
-      - if current_user.own?(@post)
-        = link_to '編集する', edit_post_path(@post), class: 'btn btn-raised btn-success'
-        = link_to '削除する', post_path(@post), class: 'btn btn-raised btn-danger',
-                 method: :delete, data:{ confirm: '削除しますか？' }
+      - if logged_in?
+        - if current_user.own?(@post)
+          = link_to '編集する', edit_post_path(@post), class: 'btn btn-raised btn-success'
+          = link_to '削除する', post_path(@post), class: 'btn btn-raised btn-danger',
+                   method: :delete, data:{ confirm: '削除しますか？' }
       = link_to 'Twitter',
               "https://twitter.com/share?/&text=%23#{@post.linking_book.book.author.gsub(" ","")}%20%23#{@post.linking_book.book.title.gsub(" ","")}%20の%20%23二冊目%20は%20%23#{@post.linked_book.book.author.gsub(" ", "")}%20%23#{@post.linked_book.book.title.gsub(" ","")}%20",
               title: 'Twitter',
