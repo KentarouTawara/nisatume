@@ -1,5 +1,11 @@
 .card
   .card-body
+    .text-left
+      .row
+        .user_name
+          = post.user.name
+        .careated_at
+          = l(post.created_at, format: :long)
     .row
       .col-4.text-right.bg-light
         = image_tag post.linking_book.book.book_image
