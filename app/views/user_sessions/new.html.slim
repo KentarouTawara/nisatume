@@ -13,7 +13,7 @@
               = f.text_field :email, class: 'form-control'
             .form-group
               = f.label :password, User.human_attribute_name(:password)
-              = f.text_field :password, class: 'form-control'
+              = f.password_field :password, class: 'form-control'
             = f.submit (t'defaults.login'), class: 'btn btn-raised btn-info'
 
         .text-center
