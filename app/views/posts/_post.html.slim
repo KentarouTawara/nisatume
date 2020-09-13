@@ -2,18 +2,20 @@
   .card-body
     .text-left
       .row
-        .user_name
-          = post.user.name
-        .careated_at
-          = l(post.created_at, format: :long)
+        ul.list-inline-item.justify-content-center
+          li.list-inline-item.user_name
+            = post.user.name
+          li.list-inline-item.created_at
+            = l(post.created_at, format: :long)
     .row
       .col-4.text-right.bg-light
         = image_tag post.linking_book.book.book_image
       .col-4.bg-light
-        h4.text-center
+        h4.text-center.text_nonisatumeha
           | の二冊目は
-        = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block'
-        .text-center
+        .arrow
+          = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block'
+        .text-center.show_botton
           = link_to '詳細を見る', post_path(post), class: 'btn btn-raised btn-info btn-sm'
       .col-4.text-left.bg-light
         = image_tag post.linked_book.book.book_image
