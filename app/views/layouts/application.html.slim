@@ -10,15 +10,6 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
 
-    / - if @post
-    /   - twitter_card = get_twitter_card_info(@post ? @post : nil)
-      meta name="twitter:card" content= "summary_large_image" /
-      meta name="twitter:site" content= "@kentaroutawara"/
-      meta property="og:url" content= 'https://www.nisatume.com/' /
-      meta property="og:title" content= "二冊目について" /
-      meta property="og:description" content= "二冊目について解説します" /
-      meta property="og:image" content= 'https://www.nisatume.com/img/rogo.png' /
-
     meta name="twitter:card" content= "summary_large_image" /
     meta name="twitter:site" content= "@kentaroutawara"/
     meta name="twitter:image" content= 'https://www.nisatume.com/img/rogo.png'/
@@ -27,6 +18,7 @@ html
     meta property="og:title" content= "熱量で本をつなぐ人肌書籍レコメンドサービス" /
     meta property="og:description" content= "みんなの二冊目をのぞいてみよう" /
     meta property="og:image" content= 'https://www.nisatume.com/img/rogo.png' /
+
   body
     - if logged_in?
       = render 'shared/login_header'
