@@ -1,13 +1,14 @@
 .card
   .card-body
     .row
-      .col-4.text-right.bg-light
-        = image_tag post.linking_book.book.book_image
-      .col-4.bg-light
-        h4.text-center
+      .col-4.text-right.bg-light.col-sm-4
+        = image_tag post.linking_book.book.book_image, class: 'img-fluid'
+      .col-4.bg-light.col-sm-4
+        h4.text-center.text_nonisatumeha
           | の二冊目は
-        = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block'
-        .text-center
+        .arrow
+          = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block'
+        .text-center.show_botton
           = link_to '詳細を見る', post_path(post), class: 'btn btn-raised btn-info btn-sm'
-      .col-4.text-left.bg-light
-        = image_tag post.linked_book.book.book_image
+      .col-4.text-left.bg-light.col-sm-4
+        = image_tag post.linked_book.book.book_image, class: 'img-fluid'

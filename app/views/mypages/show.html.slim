@@ -1,6 +1,6 @@
 .container
   .row.justify-content-center
-    .card.col-8
+    .card.col-sm-12.col-md-9
       .card-body
         - if @posts.present?
           = render partial: 'mypages/post', collection: @posts
