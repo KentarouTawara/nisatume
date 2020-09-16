@@ -1,14 +1,21 @@
 .card
   .card-body
+    .text-left
+      .row
+        ul.list-inline-item.justify-content-center
+          li.list-inline-item.user_name
+            = post.user.name
+          li.list-inline-item.created_at
+            = l(post.created_at, format: :long)
     .row
       .col-4.text-right.bg-light.col-sm-4
         = image_tag post.linking_book.book.book_image, class: 'img-fluid'
       .col-4.bg-light.col-sm-4
-        h4.text-center.text_nonisatumeha
+        h5.text-center.text_nonisatumeha
           | の二冊目は
         .arrow
           = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block'
         .text-center.show_botton
-          = link_to '詳細を見る', post_path(post), class: 'btn btn-raised btn-info btn-sm'
+          = link_to '詳細', post_path(post), class: 'btn btn-raised btn-info btn-sm'
       .col-4.text-left.bg-light.col-sm-4
         = image_tag post.linked_book.book.book_image, class: 'img-fluid'

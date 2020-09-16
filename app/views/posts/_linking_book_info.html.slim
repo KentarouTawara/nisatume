@@ -24,9 +24,9 @@
         td
           = post.linking_book.book.isbn
   .text-center
-    = link_to '楽天で買う', post.linking_book.book.book_url, class: 'btn btn-raised btn-warning'
+    = link_to '楽天で買う', post.linking_book.book.book_url, class: 'btn btn-raised btn-danger'
 .card-body
   p
     |　感想
-  .text-justify.border
+  .text-justify.border.border-light.bg-light.rounded.reveiw-area
     = simple_format(post.linking_book.content)

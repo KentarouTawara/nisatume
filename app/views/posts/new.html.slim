@@ -1,6 +1,6 @@
 .container
   .row.search-box
-    .col-6
+    .col-md-6
       .card
         .card-header
           .text-center
@@ -12,7 +12,7 @@
               = f.hidden_field :role, value: 'linking'
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
-    .col-6
+    .col-md-6
       .card
         .card-header
           .text-center
@@ -25,8 +25,11 @@
               = f.submit '本の題名を検索', class: "form-control btn btn-success"
 
   .row
-    .col-6
+    .col-md-6
       .card id = 'choiced_linking_book' style="display: none;"
+        .text-center
+          p
+            | 一冊目
         .book-image.text-center.bg-light id = 'linking_book_image'
           = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linking_default_image'
 
@@ -55,8 +58,11 @@
             .text-center id = 'linking_book_url'
               = link_to '楽天で買う', '#', class: 'btn btn-raised btn-warning', target: :_blank
 
-    .col-6
+    .col-md-6
       .card id = 'choiced_linked_book' style="display: none;"
+        .text-center
+          p
+            | 二冊目
         .book-image.text-center.bg-light id = 'linked_book_image'
           = image_pack_tag 'media/images/horse.jpg', size: '141x200', id: 'linked_default_image'
         table.table
@@ -88,7 +94,7 @@
       = form_with model: @post_form, url: posts_path, local: true do |f|
         = render 'shared/error_messages', { object: f.object }
         .row
-          .col-6
+          .col-md-6
             .card
               .card-body
                 = f.hidden_field :linking_title
@@ -97,9 +103,9 @@
                 = f.hidden_field :linking_publisher
                 = f.hidden_field :linking_image
                 = f.hidden_field :linking_url
-                = f.label :linking_content, '感想'
+                = f.label :linking_content, '一冊目の感想'
                 = f.text_area :linking_content, class: 'form-control bg-light', rows: 10
-          .col-6
+          .col-md-6
             .card
               .card-body
                 = f.hidden_field :linked_title
@@ -108,7 +114,7 @@
                 = f.hidden_field :linked_publisher
                 = f.hidden_field :linked_image
                 = f.hidden_field :linked_url
-                = f.label :linked_content, '感想'
+                = f.label :linked_content, '二冊目の感想'
                 = f.text_area :linked_content, class: 'form-control bg-light', rows: 10
-          .col-12.text-center.mt-3
+          .col-md-12.text-center.mt-3
             = f.submit '投稿する', class: 'form-control btn btn-success'

@@ -7,3 +7,42 @@
 .show_botton{
   padding: 20px;
 }
+.reveiw-area{
+  margin: 15px;
+  padding: 15px;
+}
+
+@media screen and (max-width:480px) {
+  .text_nonisatumeha{
+    font-size: 15px;
+    padding: 20px 0px 5px 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .arrow{
+    padding: 5px;
+    display: none;
+  }
+  .show_botton{
+    padding: 20px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .adjust-box {
+    position: relative;
+    width: 50%;
+    height: auto;
+    background: #EEE;
+  }
+  .box-1x1:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
