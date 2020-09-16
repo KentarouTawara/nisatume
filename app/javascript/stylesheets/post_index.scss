@@ -1,9 +1,42 @@
 .text_nonisatumeha{
   padding: 20px 0px 5px 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .arrow{
   padding: 5px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .show_botton{
   padding: 20px;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.adjust-box {
+  position: relative;
+  width: 50%;
+  height: auto;
+  background: #EEE;
+}
+.box-1x1:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

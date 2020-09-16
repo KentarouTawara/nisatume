@@ -1,5 +1,12 @@
 .card
   .card-body
+    .text-left
+      .row
+        ul.list-inline-item.justify-content-center
+          li.list-inline-item.user_name
+            = post.user.name
+          li.list-inline-item.created_at
+            = l(post.created_at, format: :long)
     .row
       .col-4.text-right.bg-light.col-sm-4
         = image_tag post.linking_book.book.book_image, class: 'img-fluid'
