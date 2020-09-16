@@ -11,11 +11,11 @@
       .text-right.bg-light.text-center.col-4
         = image_tag post.linking_book.book.book_image, class: 'img-fluid'
       .bg-light.text-center.col-4.adjust-box.box-1x1
-        h4.text-center.text_nonisatumeha.inner
+        h5.text-center.text_nonisatumeha.inner
           | の二冊目は
         .arrow
           = image_pack_tag 'media/images/arrow.png', size: '80x60', class: 'mx-auto d-block img-fluid'
         .text-center.show_botton
-          = link_to '詳細を見る', post_path(post), class: 'btn btn-raised btn-info btn-sm'
+          = link_to '詳細', post_path(post), class: 'btn btn-raised btn-info btn-sm'
       .text-left.bg-light.text-center.col-4
         = image_tag post.linked_book.book.book_image, class: 'img-fluid'
