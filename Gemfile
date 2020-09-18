@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'turbolinks'
 gem 'slim-rails'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'config'
 
 # Rakuten_book_api
 gem 'rakuten_web_service'
