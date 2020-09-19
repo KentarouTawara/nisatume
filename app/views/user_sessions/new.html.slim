@@ -18,4 +18,4 @@
 
         .text-center
           = link_to '新規登録ページへ', new_user_path, class: 'btn btn-raised btn-secondary'
-
+          = link_to 'twitterでログイン', auth_at_provider_path(:provider => :twitter) , class: 'btn btn-raised btn-secondary'
