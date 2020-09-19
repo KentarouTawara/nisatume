@@ -1,2 +1,2 @@
 twitter:
-  callback_url: https://www.nisatume.com/oauth/callback 
+  callback_url: https://www.nisatume.com/oauth/callback?provider=twitter 
