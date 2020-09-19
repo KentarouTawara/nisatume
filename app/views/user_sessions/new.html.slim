@@ -16,6 +16,10 @@
               = f.password_field :password, class: 'form-control'
             = f.submit (t'defaults.login'), class: 'btn btn-raised btn-info'
 
-        .text-center
-          = link_to '新規登録ページへ', new_user_path, class: 'btn btn-raised btn-secondary'
-          = link_to 'twitterでログイン', auth_at_provider_path(:provider => :twitter) , class: 'btn btn-raised btn-secondary'
+        .button
+          .text-center
+            li.list-inline-item.user_name
+              = link_to '新規登録ページへ', new_user_path, class: 'btn btn-raised btn-secondary'
+            li.list-inline-item.user_name
+              = link_to 'twitterでログイン', auth_at_provider_path(:provider => :twitter) , class: 'btn btn-raised btn-info'
+          
