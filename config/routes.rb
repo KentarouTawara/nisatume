@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'oauths/oauth'
+  get 'oauths/callback'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'static_pages#top'
 
@@ -13,4 +15,7 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 end
