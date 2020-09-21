@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.includes(:user, :linking_book, :linked_book).order(created_at: :desc)
   end
 
   def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_form_params)
-    if @post_form.save(current_user)
+    if @post_form.save
       redirect_to mypage_path, success: '紹介カードを作成しました'
     else
       flash.now[:danger] = '紹介カードの作成ができません'
@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   private
 
   def post_form_params
-    params.require(:post_form).permit!
-  end
-end
+    params.require(:post_form).permit(:linking_title, :linking_author, :linking_isbn, :linking_publisher, :linking_image, :linking_url,:linking_content, :linked_title, :linked_author, :linked_isbn, :linked_publisher, :linked_image, :linked_url, :linked_content).merge(user_id: current_user.id)
+  end 
+end                                    
