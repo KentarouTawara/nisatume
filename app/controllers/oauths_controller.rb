@@ -16,9 +16,9 @@ class OauthsController < ApplicationController
 
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_to root_path, success: "Logged in from #{provider.titleize}!"
+        redirect_to root_path, success: "#{provider.titleize}でログインしました"
       rescue
-        redirect_to root_path, danger: "Failed to login from #{provider.titleize}!"
+        redirect_to root_path, danger: "#{provider.titleize}でのログインに失敗しました"
       end
     end
   end
