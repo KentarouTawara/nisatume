@@ -2,6 +2,7 @@ class PostForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
+  attribute :user_id, :string
   attribute :linking_title, :string
   attribute :linking_author, :string
   attribute :linking_isbn, :integer
@@ -23,17 +24,17 @@ class PostForm
   validates :linking_content, presence: true
   validates :linked_content, presence: true
 
-  def save(current_user)
+  def save
     return false if invalid?
     ActiveRecord::Base.transaction do
-      @post = Post.create(user_id: current_user.id)
+      @post = Post.create(user_id: self.user_id)
       @linking_book = Book.find_or_create_by(title: self.linking_title,
                                            author: self.linking_author,
                                            isbn: self.linking_isbn,
                                            publisher: self.linking_publisher,
                                            book_image: self.linking_image,
                                            book_url: self.linked_url)
-      @linking_book.id = Book.find_by(isbn: self.linking_isbn).id if @linking_book.id.nil?
+      @linking_book.id = Book.find_by!(isbn: self.linking_isbn).id if @linking_book.id.nil?
 
       @linked_book = Book.find_or_create_by(title: self.linked_title,
                                            author: self.linked_author,
@@ -42,7 +43,7 @@ class PostForm
                                            book_image: self.linked_image,
                                            book_url: self.linked_url)
 
-      @linked_book.id = Book.find_by(isbn: self.linked_isbn).id if @linked_book.id.nil?
+      @linked_book.id = Book.find_by!(isbn: self.linked_isbn).id if @linked_book.id.nil?
 
       @linking_book_content = LinkingBook.new(post_id: @post.id,
                                                book_id: @linking_book.id,
