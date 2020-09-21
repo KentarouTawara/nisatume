@@ -22,10 +22,10 @@ class PostsController < ApplicationController
   def search
     @role = params[:role]
     @keyword = params[:keyword]
-    if @keyword.present?
+    if @keyword.present? && @role.present?
       if @role == 'linking'
         @linking_books = RakutenWebService::Books::Book.search(title: params[:keyword])
-      else
+      elsif @role == 'linked'
         @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
       end
     end
