@@ -4,3 +4,11 @@
       = image_pack_tag('media/images/black_rogo.png', size: '300x120')
     h1.copy
       | 一冊目は直感で、二冊目は共感で
+.container
+  .row.justify-content-center
+    .card.col-sm-12.col-md-9
+      .card-header
+        h4.text-center
+          | 最新の投稿
+      .card-body
+        = render @posts

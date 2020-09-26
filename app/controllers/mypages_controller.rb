@@ -1,5 +1,5 @@
 class MypagesController < ApplicationController
   def show
-    @posts = Post.where(user_id: current_user.id).order(created_at: :desc)
+    @posts = current_user.posts.order(created_at: :desc)
   end
 end

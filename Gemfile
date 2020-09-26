@@ -14,14 +14,12 @@ gem 'sorcery'
 
 # Database
 gem 'mysql2', '>= 0.4.4'
-# gem 'redis', '~> 4.0'
 
 # Application server
 gem 'puma', '~> 4.1'
 
 # UI/UX
 gem 'jbuilder', '~> 2.7'
-# gem 'turbolinks'
 gem 'slim-rails'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'config'
@@ -57,8 +55,10 @@ group :development, :test do
   gem 'rails_best_practices', require: false
   gem 'reek'
   gem 'rspec_junit_formatter'
+
+  # rubyのコードチェック
   gem 'rubocop', require: false
-  gem 'rubocop-checkstyle_formatter', require: false
+  # Railsのコードチェック 
   gem 'rubocop-rails', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint'
@@ -68,11 +68,7 @@ group :development, :test do
   gem 'rspec-rails'
 
 end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'

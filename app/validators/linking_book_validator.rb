@@ -1,10 +1,7 @@
 class LinkingBookValidator < ActiveModel::Validator
   def validate(record)
-    if record.linking_title.blank? || record.linking_author.blank? || record.linking_isbn.blank? || record
-                                                                                                   .linking_publisher
-                                                                                                   .blank? || record
-                                                                                                                .linking_image.blank? || record.linking_url.blank?
-      record.errors[:base] << '一冊目を選んでください'
-    end
+    linking_book_info = [record.linking_title, record.linking_author, record.linking_isbn, record.linking_publisher, record.linking_image, record.linking_url]
+
+    record.errors[:base] << '一冊目を選んでください' if linking_book_info.any?(&:blank?)
   end
 end
