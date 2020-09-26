@@ -1,0 +1,54 @@
+# .rubcop_todo.ymlには現状では対応できない規約を一時的にスルーするための設定が書かれたファイル
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.7
+  # 除外
+  Exclude:
+    - 'vendor/**/*'
+    - 'config/**/*'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'Gemfile'
+    - 'test/**/*'
+    - 'spec/**/*'
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# classの最初の行にコメントがないことを許可
+Documentation:
+  Enabled: false
+
+# メソッドの長さを許容
+Metrics/MethodLength:
+  Max: 20
+
+# 条件式に同時に変数代入を許容
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# エラークラスを指定せずにrescueを使用可能
+Style/RescueStandardError:
+  Enabled: false
+
+# ABC Sizeのmaxを緩める
+Metrics/AbcSize:
+  Max: 50
+
+# 一文の長さを許容する
+Metrics/LineLength:
+  Max: 300 
+
+# メソッドの長さを許容
+Metrics/MethodLength:
+  Max: 30 

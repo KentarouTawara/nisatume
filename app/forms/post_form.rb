@@ -26,32 +26,33 @@ class PostForm
 
   def save
     return false if invalid?
+
     ActiveRecord::Base.transaction do
-      @post = Post.create(user_id: self.user_id)
-      @linking_book = Book.find_or_create_by(title: self.linking_title,
-                                           author: self.linking_author,
-                                           isbn: self.linking_isbn,
-                                           publisher: self.linking_publisher,
-                                           book_image: self.linking_image,
-                                           book_url: self.linked_url)
-      @linking_book.id = Book.find_by!(isbn: self.linking_isbn).id if @linking_book.id.nil?
+      @post = Post.create(user_id: user_id)
+      @linking_book = Book.find_or_create_by(title: linking_title,
+                                             author: linking_author,
+                                             isbn: linking_isbn,
+                                             publisher: linking_publisher,
+                                             book_image: linking_image,
+                                             book_url: linked_url)
+      @linking_book.id = Book.find_by!(isbn: linking_isbn).id if @linking_book.id.nil?
 
-      @linked_book = Book.find_or_create_by(title: self.linked_title,
-                                           author: self.linked_author,
-                                           isbn: self.linked_isbn,
-                                           publisher: self.linked_publisher,
-                                           book_image: self.linked_image,
-                                           book_url: self.linked_url)
+      @linked_book = Book.find_or_create_by(title: linked_title,
+                                            author: linked_author,
+                                            isbn: linked_isbn,
+                                            publisher: linked_publisher,
+                                            book_image: linked_image,
+                                            book_url: linked_url)
 
-      @linked_book.id = Book.find_by!(isbn: self.linked_isbn).id if @linked_book.id.nil?
+      @linked_book.id = Book.find_by!(isbn: linked_isbn).id if @linked_book.id.nil?
 
       @linking_book_content = LinkingBook.new(post_id: @post.id,
-                                               book_id: @linking_book.id,
-                                               content: self.linking_content)
+                                              book_id: @linking_book.id,
+                                              content: linking_content)
 
       @linked_book_content = LinkedBook.new(post_id: @post.id,
-                                               book_id: @linked_book.id,
-                                               content: self.linked_content)
+                                            book_id: @linked_book.id,
+                                            content: linked_content)
       @linking_book_content.save!
       @linked_book_content.save!
     end

@@ -4,7 +4,7 @@ class OauthsController < ApplicationController
   def oauth
     login_at(params[:provider])
   end
-      
+
   def callback
     provider = params[:provider]
     if @user = login_from(provider)
@@ -23,9 +23,3 @@ class OauthsController < ApplicationController
     end
   end
 end
-
-
-
-
-
-  

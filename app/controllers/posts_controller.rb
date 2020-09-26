@@ -22,12 +22,12 @@ class PostsController < ApplicationController
   def search
     @role = params[:role]
     @keyword = params[:keyword]
-    if @keyword.present? && @role.present?
-      if @role == 'linking'
-        @linking_books = RakutenWebService::Books::Book.search(title: params[:keyword])
-      elsif @role == 'linked'
-        @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
-      end
+    return unless @keyword.present? && @role.present?
+
+    if @role == 'linking'
+      @linking_books = RakutenWebService::Books::Book.search(title: params[:keyword])
+    elsif @role == 'linked'
+      @linked_books = RakutenWebService::Books::Book.search(title: params[:keyword])
     end
   end
 
@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   private
 
   def post_form_params
-    params.require(:post_form).permit(:linking_title, :linking_author, :linking_isbn, :linking_publisher, :linking_image, :linking_url,:linking_content, :linked_title, :linked_author, :linked_isbn, :linked_publisher, :linked_image, :linked_url, :linked_content).merge(user_id: current_user.id)
-  end 
-end                                    
+    params.require(:post_form).permit(:linking_title, :linking_author, :linking_isbn, :linking_publisher, :linking_image, :linking_url, :linking_content, :linked_title, :linked_author, :linked_isbn, :linked_publisher, :linked_image, :linked_url, :linked_content).merge(user_id: current_user.id)
+  end
+end
