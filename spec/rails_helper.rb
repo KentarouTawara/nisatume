@@ -64,5 +64,4 @@ RSpec.configure do |config|
 
   # Factory_botのメソッドを使用する際に、クラス名の指定を省略できる
   config.include FactoryBot::Syntax::Methods
-  config.include SystemHelper
 end
