@@ -58,7 +58,7 @@ group :development, :test do
 
   # rubyのコードチェック
   gem 'rubocop', require: false
-  # Railsのコードチェック 
+  # Railsのコードチェック
   gem 'rubocop-rails', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint'
@@ -66,6 +66,8 @@ group :development, :test do
   # test
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0'
 
 end
 
